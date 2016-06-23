@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dafeiji</title>
+	<style>
+		#kuang{
+			width:400px;
+			height:500px;
+			border:1px solid blue;
+			position:relative;
+			margin:20px auto;
+		}
+		#plane{
+			background:url('./feiji.png');
+			/*background-size:60px 40px;*/
+			width:60px;
+			height:60px;
+			position:absolute;
+		}
+		.ball{
+			height:20px;
+			width:20px;
+			border-radius:10px;
+			background:black;
+			position:absolute;
+			z-index:100;
+		}
+	</style>
+</head>
+<body>
+	<div id="kuang">
+		<div id="plane" style="width:60px;margin-left:170px;margin-top:440px"></div>
+	</div>
+</body>
+<script>
+	 document.body.onkeydown = function(e){
+		// for(i in e){
+		// 	document.write(i+':'+e['i']+'<br>');
+
+		// }	
+		//w:87 s:83 a:65 d:68  空格 32
+		    var step = 10;	
+		    var shudu  =5;
+		    var plane = document.getElementById('plane');
+		    var kuang = document.getElementById('kuang');
+		    var ball = document.createElement('div');
+			var evt = e || window.event;
+			switch(evt['keyCode']){
+				case 87:
+					up();
+					return;
+				case 83:
+					down();
+					return;
+				case 65:
+					left();
+					return;
+				case 68:
+					right();
+					return;
+				case 32:
+					shoot();
+					return;
+			}
+			function up(){
+				plane.style.marginTop = parseInt(plane.style.marginTop) - step + 'px';
+			}
+			function down(){
+				plane.style.marginTop = parseInt(plane.style.marginTop) + step + 'px';
+			}
+			function left(){
+				plane.style.marginLeft = parseInt(plane.style.marginLeft) - step + 'px';
+			}
+			function right(){
+				plane.style.marginLeft = parseInt(plane.style.marginLeft) + step + 'px';
+			}
+			function shoot(){
+				
+				ball.className = 'ball';
+				ball.style.marginLeft = parseInt(plane.style.marginLeft) + 20 + 'px';
+				ball.style.marginTop = parseInt(plane.style.marginTop) -20 + 'px';
+				kuang.appendChild(ball);
+				// balls[balls.length] = ball;
+				run();
+			}
+
+			function run(){		
+				// alert(parseInt(ball.style.marginTop) - shudu + 'px');
+
+				// ball.style.marginTop = parseInt(ball.style.marginTop) - shudu + 'px';
+				setInterval(function(){ball.style.marginTop = parseInt(ball.style.marginTop) - shudu + 'px'},100);
+		}
+				// setInterval("run()",100);
+	}	
+
+		// window.onload  = function(){
+		// 	run();
+		// }
+	
+
+</script>
+</html>

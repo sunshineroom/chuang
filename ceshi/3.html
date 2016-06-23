@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>mysql</title>
+	<style type="text/css">
+		#a{width: 100px;height: 30px;background:yellow;float: left;margin-left: 10px;}
+		#b{width: 100px;height: 30px;background:yellow;float: left;margin-left: 10px;}
+		#c{width: 100px;height: 30px;background:yellow;float: left;margin-left: 10px;}
+		#d{width: 350px;height: 300px;border:1px solid blue;left:10px;top:30px;position:relative;}
+
+	</style>
+</head>
+<body>
+	<div id="a">php详情</div>
+	<div id="b">Apache详情</div>
+	<div id="c">mysql详情</div>
+	<div id="d"></div>
+	<script type="text/javascript">
+	var a = document.getElementById('a');
+	var b = document.getElementById('b');
+	var c = document.getElementById('c');
+	var d = document.getElementById('d');
+	a.onmouseover = function(){
+		var v = a.innerHTML;
+		a.style.background = "red";
+		d.innerHTML = v;
+	}
+	a.onmouseout = function(){
+		d.innerHTML = '';
+		a.style.background = "yellow";
+	}
+	b.onmouseover = function(){
+		var v = b.innerHTML;
+		b.style.background = "red";
+		d.innerHTML = v;
+	}
+	b.onmouseout = function(){
+		d.innerHTML = '';
+		b.style.background = "yellow";
+	}
+	c.onmouseover = function(){
+		var v = c.innerHTML;
+		c.style.background = "red";
+		d.innerHTML = v;
+	}
+	c.onmouseout = function(){
+		d.innerHTML = '';
+		c.style.background = "yellow";
+	}
+
+
+	</script>
+</body>
+</html>
